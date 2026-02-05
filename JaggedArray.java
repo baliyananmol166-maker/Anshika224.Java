@@ -16,12 +16,14 @@ public class JaggedArray {
 
         System.out.println("Elements of jagged array:");
 
-        for (int i = 0; i < jagged.length; i++) {
-            for (int j = 0; j < jagged[i].length; j++) {
-                System.out.print(jagged[i][j] + " ");
+        // enhanced for loop
+        for (int[] row : jagged) {
+            for (int value : row) {
+                System.out.print(value + " ");
             }
             System.out.println();
         }
     }
 }
+
 
