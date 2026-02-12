@@ -1,3 +1,6 @@
+//Anshika
+//2400320100224
+
 public class studentc {
     int id;
     String name;
@@ -5,7 +8,7 @@ public class studentc {
     // constructor
     studentc() {
         id = 10;
-        name = "abc";
+        name = "Anshika";
     }
 
     void display() {
