@@ -1,4 +1,4 @@
-class Test1 {
+class test1 {
 
     public int a = 10;
     private int b = 20;
@@ -13,7 +13,7 @@ class Test1 {
     }
 
     public static void main(String[] args) {
-        Test1 obj = new Test1();
+        test1 obj = new test1();
         obj.show();
     }
 }
