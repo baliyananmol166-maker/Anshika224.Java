@@ -5,10 +5,13 @@ public class TEST_3 {
 
         try{
             int a=10/0;
-
-        }catch (Exception e){
+        }
+        catch (Exception e){
             System.out.println("error");
-        }finally{
+        }
+        finally{
              System.out.println("this always run");
+        }
     }
-}}
+
+}
