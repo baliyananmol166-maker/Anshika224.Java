@@ -14,27 +14,28 @@ class BankAccount {
             );
         } else {
             balance -= amount;
-            System.out.println("Withdrawal successful. Remaining balance: " + balance);
+            System.out.println("Withdrawal successful. Remaining balance: ");
         }
     }
 }
 
-public class CombineDemo {
+public class Combine {
 
     public static void main(String[] args) {
 
-        // Arithmetic Exception Example
         try {
-            int x = 10 / 0;
-        } catch (Exception e) {
+            int x=10/0;
+            System.out.println(x);
+
+        } catch (ArithmeticException e) {
             System.out.println("Error");
         }
 
-        // Custom Exception Example
         BankAccount account = new BankAccount();
+
         try {
-            account.withdraw(7000);   // Correct method call
-        } catch (Exception e) {
+            account.withdraw(7000);
+        } catch (InsufficientBalanceException e) {
             System.out.println("Custom error: " + e.getMessage());
         }
 
