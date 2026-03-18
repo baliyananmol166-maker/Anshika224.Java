@@ -1,12 +1,17 @@
 // create a constructor in java..
 public class Program18 {
-    public Program18() {
-        System.out.println("This is a constructor of Account class...");
-    }
+
     static class Account {
         String accountNumber;
         String accountType;
         long account;
+
+        // Constructor
+        public Account(String accountNumber, String accountType, long account) {
+            this.accountNumber = accountNumber;
+            this.accountType = accountType;
+            this.account = account;
+        }
 
         public boolean withdrawAmount(long amt) {
             if (amt > account)
@@ -28,20 +33,19 @@ public class Program18 {
     }
 
     public static void main(String[] args) {
-        Account obj = new Account();
-        obj.accountNumber = "SB_101";
-        obj.accountType = "Saving Account";
-        obj.account = 100;
 
-        System.out.println("My obj's initial values: " + obj.accountNumber + " :: " + obj.accountType + " :: " + obj.account);
+        // Using constructor
+        Account obj = new Account("SB_101", "Saving Account", 100);
+
+        System.out.println("Initial values: " + obj.accountNumber + " :: " + obj.accountType + " :: " + obj.account);
 
         obj.depositAmount(100);
-        System.out.println("My obj's values after deposit: " + obj.accountNumber + " :: " + obj.accountType + " :: " + obj.account);
+        System.out.println("After deposit: " + obj.accountNumber + " :: " + obj.accountType + " :: " + obj.account);
 
         obj.withdrawAmount(50);
-        System.out.println("My obj's values after first withdraw: " + obj.accountNumber + " :: " + obj.accountType + " :: " + obj.account);
+        System.out.println("After first withdraw: " + obj.accountNumber + " :: " + obj.accountType + " :: " + obj.account);
 
         obj.withdrawAmount(1000);
-        System.out.println("My obj's values after second withdraw: " + obj.accountNumber + " :: " + obj.accountType + " :: " + obj.account);
+        System.out.println("After second withdraw: " + obj.accountNumber + " :: " + obj.accountType + " :: " + obj.account);
     }
 }
