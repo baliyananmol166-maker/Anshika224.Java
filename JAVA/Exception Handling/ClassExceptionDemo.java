@@ -1,7 +1,6 @@
 // classification of exception
 // 1. checked exception: it is checked at compile time, if we are not handling it with try-catch block then it will give compile time error.
 // 2. unchecked exception: it is not checked at compile time, if we are not handling it with try-catch block then it will throw an exception and terminate the program.
-import java.net.*;
 import java.io.*;
 
 public class ClassExceptionDemo {
