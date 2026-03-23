@@ -1,7 +1,6 @@
 // inheritance demo by shape class and circle class
 // there is no multiple inheritance in java
 
-import java.util.*;
 
 // super class (parent class)
 class Shape {
