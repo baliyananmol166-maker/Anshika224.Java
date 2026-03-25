@@ -12,11 +12,12 @@ public class GenericMethodDemo {
         strQ.enqueue("Java");
         strQ.enqueue("Python");
         System.out.println("str queue is:" + strQ.l);
-        
+
         String str = strQ.dequeue();  // it remove first element of the queue and return it.
         System.out.println("After updation str queue is:" +strQ.l);
     }
 }
+//generic method of enquque and dequeue is defined in myQueue class.
 class myQueue<T> {
     LinkedList<T> l = new LinkedList<>();
     public void enqueue(T obj) {
