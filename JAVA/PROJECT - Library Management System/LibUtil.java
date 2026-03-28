@@ -1,28 +1,30 @@
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.util.Properties;
-import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class LibUtil {
     public static Connection getConnection() {
         Connection conn = null;
-        try {
+
+        try (FileInputStream in = new FileInputStream("DBProperties.txt")) {
             Properties prop = new Properties();
-            FileInputStream in = new FileInputStream("DBProperties.txt");
             prop.load(in);
 
-            String driverName = prop.getProperty("DBRriver");
+            String driverName = prop.getProperty("DBDriver");
+            String dbName = prop.getProperty("DBName");
+            String user = prop.getProperty("User");
+            String password = prop.getProperty("Password");
+
+            if (driverName == null || dbName == null || user == null || password == null) {
+                throw new RuntimeException("One or more DB properties are missing!");
+            }
+
             Class.forName(driverName);
-
-            String dbName, user, password;
-            dbName = prop.getProperty("DBName");
-            user = prop.getProperty("User");
-            password = prop.getProperty("Password");
-
             conn = DriverManager.getConnection(dbName, user, password);
-            return conn;
+            System.out.println("Database connected successfully!");
 
         } catch (IOException e) {
             System.out.println("IO Error: " + e.getMessage());

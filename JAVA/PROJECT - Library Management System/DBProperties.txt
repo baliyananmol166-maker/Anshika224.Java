@@ -1,4 +1,4 @@
-DBDriver= oracle.jdbc.driver.OracleDriver;
-DBName=jdbc:oracle:thin:@localhost:1522:xe
-User=Anshika
-Password=Rabbit
+DBDriver=oracle.jdbc.driver.OracleDriver
+DBName=jdbc:oracle:thin:@localhost:1521:xe
+User=your_username
+Password=your_password

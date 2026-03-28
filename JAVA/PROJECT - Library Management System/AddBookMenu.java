@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.sql.Connection;
+import java.sql.Statement;
+
 
 public class AddBookMenu {
     public static void addBookMenu() {
@@ -34,5 +37,21 @@ public class AddBookMenu {
     }
     public static void addBook(Book b) {
         System.out.println("Reached inside addBook for book" + b.getIsbnCode());
+        Connection conn = LibUtil.getConnection();
+        try {
+            Statement stmt = conn.createStatement();
+            int k = stmt.executeUpdate("insert int book values ('" + b.getIsbnCode() + "','" + b.getBookName() + "','" + b.getBookDesc() + "','" + b.getAuthorName() + "','" + b.getSubjectName() + "'," + b.getUnitsAvailable() + ")");
+            if(k >0) {
+                System.out.println("Added Book successfully");
+                conn.commit();
+            }else {
+                conn.rollback();
+            }
+            conn.close();
+        } 
+        catch (java.sql.SQLException | NullPointerException e) {
+            System.out.println("Error while adding book: " + e.getMessage());
+        }
+        
     }
 }
